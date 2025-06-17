@@ -36,7 +36,7 @@ const ciudadesPorPais = {
     ],
     'ecuador': [
         'Quito', 'Guayaquil', 'Cuenca', 'Santo Domingo', 'Machala',
-        'Manta', 'Portoviejo', 'Loja', 'Ambato'
+        'Manta', 'Portoviejo', 'Loja', 'Ambato', 'La Troncal', 'Azogues', 'Biblián'
     ],
     'paraguay': [
         'Asunción', 'Ciudad del Este', 'San Lorenzo', 'Luque',
