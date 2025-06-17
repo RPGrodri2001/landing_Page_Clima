@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- CONFIGURACIÓN BÁSICA -->
+    <meta charset="UTF-8">
+    <!-- ¿Qué hace? Define la codificación de caracteres para que se vean bien las tildes y ñ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ¿Qué hace? Hace que la página se vea bien en móviles (responsive design) -->
+
+    <title>RPG - ClimaLatino</title>
+    <!-- El título que aparece en la pestaña del navegador -->
+
+    <!-- LIBRERÍAS EXTERNAS -->
+    <!-- Bootstrap: Framework CSS que nos da estilos predefinidos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome: Librería de iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts: Tipografía personalizada -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- SECCIÓN PRINCIPAL (HERO) -->
+    <!-- Esta es la primera sección que ve el usuario -->
+    <section class="hero-section">
+        <div class="container">
+            <!-- Título principal con icono -->
+
+            <h1 class="hero-title">
+                <i class="fas fa-cloud-sun"></i> RPG - ClimaLatino
+            </h1>
+            <!-- Subtítulo descriptivo -->
+            <p class="hero-subtitle">
+               🧡 Descubre el clima en tiempo real en toda Latinoamérica, para estar mas al pendiente. 🧡
+                <br>
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+
+        <!-- TARJETA DE SELECCIÓN DE CIUDAD -->
+        <div class="weather-card">
+            <div class="row">
+
+                <!-- SELECTOR DE PAÍS -->
+                <div class="col-md-4 mb-3">
+                    <!-- Label: etiqueta que describe el campo -->
+                    <label for="paisSelect" class="form-label">
+                        <i class="fas fa-flag"></i> Selecciona un País
+                    </label>
+                    <!-- Select: lista desplegable -->
+                    <select class="form-select" id="paisSelect">
+                        <option value="">Elige un país...</option>
+                        <!-- Cada option es una opción del menú -->
+                        <option value="argentina">🇦🇷 Argentina</option>
+                        <option value="bolivia">🇧🇴 Bolivia</option>
+                        <option value="brasil">🇧🇷 Brasil</option>
+                        <option value="chile">🇨🇱 Chile</option>
+                        <option value="colombia">🇨🇴 Colombia</option>
+                        <option value="ecuador">🇪🇨 Ecuador</option>
+                        <option value="paraguay">🇵🇾 Paraguay</option>
+                        <option value="peru">🇵🇪 Perú</option>
+                        <option value="uruguay">🇺🇾 Uruguay</option>
+                        <option value="venezuela">🇻🇪 Venezuela</option>
+                    </select>
+                </div>
+
+                <!-- SELECTOR DE CIUDAD -->
+                <div class="col-md-4 mb-3">
+                    <label for="regionSelect" class="form-label">
+                        <i class="fas fa-map-marker-alt"></i> Selecciona una Ciudad
+                    </label>
+                    <!-- disabled: campo deshabilitado hasta que se seleccione un país -->
+                    <select class="form-select" id="regionSelect" disabled>
+                        <option value="">Primero elige un país</option>
+                    </select>
+                </div>
+
+                <!-- BOTÓN DE CONSULTA -->
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <!-- d-flex align-items-end: alinea el botón al final verticalmente -->
+                    <button class="btn btn-clima w-100" id="consultarClima">
+                        <i class="fas fa-search"></i> Consultar Clima
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TARJETA DE RESULTADOS -->
+        <!-- style="display: none": inicialmente oculta -->
+        <div class="weather-card" id="resultadoClima" style="display: none;">
+
+            <!-- INDICADOR DE CARGA -->
+            <div id="loading" class="text-center" style="display: none;">
+                <div class="loader"></div>
+                <p>Consultando el clima real...</p>
+            </div>
+
+            <!-- CONTENEDOR DE DATOS DEL CLIMA -->
+            <!-- Aquí se insertará dinámicamente la información del clima -->
+            <div id="climaData" style="display: none;">
+                <!-- El JavaScript llenará este contenido -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <!-- Necesario para funcionalidades interactivas de Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+<script src="./js/main.js"></script>
+
+</html>

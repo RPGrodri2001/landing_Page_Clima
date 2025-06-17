@@ -1,0 +1,275 @@
+/* 
+===============================================
+CSS PARA CLIMALATINO - EXPLICADO PASO A PASO
+===============================================
+*/
+
+/* VARIABLES CSS - Nuestros Colores Principales */
+/* ¿Para qué sirven? Nos permiten cambiar colores fácilmente en toda la página */
+:root {
+    --primary-color: #4A90E2;      /* Azul principal */
+    --secondary-color: #50C878;    /* Verde secundario */
+    --accent-color: #FF6B6B;       /* Rojo de acento para errores */
+    --text-dark: #2C3E50;          /* Texto oscuro */
+    --text-light: #ECF0F1;         /* Texto claro */
+    --gradient: linear-gradient(135deg, #4A90E2, #50C878); /* Degradado */
+}
+
+/* CONFIGURACIÓN GLOBAL */
+/* Se aplica a TODOS los elementos de la página */
+* {
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+}
+
+/* ESTILOS DEL BODY */
+body {
+    background: var(--gradient);    /* Fondo con degradado */
+    min-height: 100vh;             /* Altura mínima = altura de pantalla */
+    margin: 0;                     /* Sin márgenes */
+    padding: 0;                    /* Sin relleno */
+}
+
+/* ================================
+   SECCIÓN HERO (ENCABEZADO)
+================================ */
+
+.hero-section {
+    /* FONDO COMPLEJO - 3 CAPAS */
+    background: 
+        /* Capa 1: Filtro oscuro para legibilidad */
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+        /* Capa 2: Ondas decorativas SVG */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,149.3C1248,139,1344,117,1392,106.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') center/cover;
+    
+    color: white;                  /* Texto blanco */
+    padding: 100px 0;             /* Espaciado arriba y abajo */
+    text-align: center;           /* Centrar texto */
+    position: relative;           /* Para posicionamiento de elementos hijos */
+    overflow: hidden;             /* Ocultar contenido que se salga */
+}
+
+/* TÍTULO PRINCIPAL */
+.hero-title {
+    font-size: 3.5rem;           /* Tamaño grande */
+    font-weight: 700;            /* Muy negrita */
+    margin-bottom: 20px;         /* Espacio abajo */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+    animation: fadeInUp 1s ease-out; /* Animación de entrada */
+}
+
+/* SUBTÍTULO */
+.hero-subtitle {
+    font-size: 1.3rem;           /* Tamaño mediano */
+    font-weight: 300;            /* Ligero */
+    margin-bottom: 30px;         /* Espacio abajo */
+    animation: fadeInUp 1s ease-out 0.3s both; /* Animación con retraso */
+}
+
+/* ================================
+   ANIMACIONES
+================================ */
+
+/* Animación de aparición desde abajo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;                    /* Comienza invisible */
+        transform: translateY(30px);   /* 30px más abajo */
+    }
+    to {
+        opacity: 1;                    /* Termina visible */
+        transform: translateY(0);      /* En posición normal */
+    }
+}
+
+/* ================================
+   TARJETAS DEL CLIMA
+================================ */
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.95); /* Blanco semi-transparente */
+    border-radius: 20px;          /* Esquinas redondeadas */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra suave */
+    padding: 30px;                /* Espaciado interno */
+    margin: 30px 0;               /* Espaciado externo */
+    backdrop-filter: blur(10px);  /* Efecto de desenfoque del fondo */
+    transition: transform 0.3s ease; /* Transición suave para efectos */
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.weather-card:hover {
+    transform: translateY(-5px);  /* Se eleva 5px */
+}
+
+/* ================================
+   FORMULARIOS
+================================ */
+
+/* Selectores (listas desplegables) */
+.form-select {
+    border: 2px solid #e9ecef;    /* Borde gris claro */
+    border-radius: 10px;          /* Esquinas redondeadas */
+    padding: 12px 15px;           /* Espaciado interno */
+    font-size: 1rem;              /* Tamaño de texto */
+    transition: border-color 0.3s ease; /* Transición suave del borde */
+}
+
+/* Efecto cuando el usuario hace click en el selector */
+.form-select:focus {
+    border-color: var(--primary-color); /* Borde azul */
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25); /* Resplandor azul */
+}
+
+/* ================================
+   BOTONES
+================================ */
+
+.btn-clima {
+    background: var(--gradient);   /* Fondo con degradado */
+    border: none;                 /* Sin borde */
+    border-radius: 25px;          /* Muy redondeado */
+    padding: 12px 30px;           /* Espaciado interno */
+    font-weight: 600;             /* Semi-negrita */
+    color: white;                 /* Texto blanco */
+    transition: all 0.3s ease;    /* Transición suave para todos los cambios */
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3); /* Sombra azul */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.btn-clima:hover {
+    transform: translateY(-2px);  /* Se eleva 2px */
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4); /* Sombra más intensa */
+}
+
+/* ================================
+   INFORMACIÓN DEL CLIMA
+================================ */
+
+.clima-info {
+    text-align: center;           /* Centrar contenido */
+    margin-top: 30px;             /* Espacio arriba */
+}
+
+/* Contenedor principal del clima */
+.clima-principal {
+    display: flex;                /* Layout flexible */
+    align-items: center;          /* Centrar verticalmente */
+    justify-content: center;      /* Centrar horizontalmente */
+    gap: 20px;                    /* Espacio entre elementos */
+    margin: 20px 0;               /* Espaciado vertical */
+}
+
+/* Icono del clima (emoji) */
+.icono-clima {
+    font-size: 4rem;              /* Tamaño grande */
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); /* Sombra */
+}
+
+/* Temperatura principal */
+.temperatura {
+    font-size: 4rem;              /* Muy grande */
+    font-weight: 700;             /* Muy negrita */
+    color: var(--primary-color);  /* Color azul */
+    margin: 20px 0;               /* Espaciado vertical */
+}
+
+/* Descripción del clima */
+.descripcion {
+    font-size: 1.5rem;            /* Tamaño mediano-grande */
+    color: var(--text-dark);      /* Texto oscuro */
+    margin-bottom: 20px;          /* Espacio abajo */
+    text-transform: capitalize;   /* Primera letra mayúscula */
+}
+
+/* ================================
+   GRID DE INFORMACIÓN
+================================ */
+
+.info-grid {
+    display: grid;                /* Layout en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas responsivas */
+    gap: 20px;                    /* Espacio entre elementos */
+    margin-top: 30px;             /* Espacio arriba */
+}
+
+/* Elementos individuales del grid */
+.info-item {
+    background: rgba(74, 144, 226, 0.1); /* Fondo azul muy claro */
+    padding: 20px;                /* Espaciado interno */
+    border-radius: 15px;          /* Esquinas redondeadas */
+    text-align: center;           /* Centrar contenido */
+    transition: background 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover en elementos del grid */
+.info-item:hover {
+    background: rgba(74, 144, 226, 0.2); /* Fondo un poco más oscuro */
+}
+
+/* Iconos de información */
+.info-icon {
+    font-size: 2rem;              /* Tamaño grande */
+    color: var(--primary-color);  /* Color azul */
+    margin-bottom: 10px;          /* Espacio abajo */
+}
+
+/* ================================
+   INFORMACIÓN ADICIONAL
+================================ */
+
+.info-adicional {
+    margin-top: 30px;             /* Espacio arriba */
+    padding-top: 20px;            /* Espaciado interno arriba */
+    border-top: 1px solid #eee;   /* Línea divisoria */
+    text-align: center;           /* Centrar texto */
+    color: #666;                  /* Texto gris */
+}
+
+/* Texto pequeño de información adicional */
+.info-adicional small {
+    display: block;               /* Cada elemento en su línea */
+    margin: 5px 0;                /* Pequeño espaciado vertical */
+}
+
+/* ================================
+   LOADER (INDICADOR DE CARGA)
+================================ */
+
+.loader {
+    border: 4px solid #f3f3f3;    /* Borde gris claro */
+    border-top: 4px solid var(--primary-color); /* Borde superior azul */
+    border-radius: 50%;           /* Circular */
+    width: 50px;                  /* Ancho */
+    height: 50px;                 /* Alto */
+    animation: spin 1s linear infinite; /* Animación de giro */
+    margin: 20px auto;            /* Centrar */
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }     /* Posición inicial */
+    100% { transform: rotate(360deg); } /* Giro completo */
+}
+
+/* ================================
+   RESPONSIVE DESIGN (MÓVILES)
+================================ */
+
+/* Se aplica cuando la pantalla es menor a 768px */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;         /* Título más pequeño */
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;         /* Subtítulo más pequeño */
+    }
+    
+    .temperatura {
+        font-size: 3rem;           /* Temperatura más pequeña */
+    }
+    
+    .weather-card {
+        margin: 15px;              /* Menos margen */
+        padding: 20px;             /* Menos padding */
+    }
+}
